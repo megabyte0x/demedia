@@ -1,0 +1,20 @@
+# 1. Schema - where is the GraphQl schema located at?
+
+schema: "https://api.lens.dev/"
+
+# 2. Documents - what path are the GraphQl operations located at?
+
+# Our documents located at /src/graphql/
+documents: "src/graphql/*.graphql*"
+
+# 3.  Where do we want to generate the output 
+
+generates: 
+      scr/graphql/generated.ts: 
+        plugins: 
+          - typescript
+          - typescript-operations
+          - typescript-react-query
+          - fragment-matcher
+        config:
+          - dedupeFragements: true
